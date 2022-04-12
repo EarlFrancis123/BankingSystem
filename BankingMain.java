@@ -3,10 +3,9 @@ import java.util.Scanner;
 public class BankingMain {
   
     public static void main(String[] args) {
-        int transactionaAmount, initialfunds;
-        int option,option2;
+        
+        int option,option2,currentFund,transactionaAmount, initialfunds;
         String name;
-        int currentFund;
         double convertion;
         Scanner inputsc = new Scanner(System.in);
         Transaction transaction = new Transaction();
@@ -99,7 +98,6 @@ public class BankingMain {
                              System.out.println("Invalid Input Pleased input Valid Number");
 
                         break;
-                        
                 }
                 System.out.println("********************************");
                
