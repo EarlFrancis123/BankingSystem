@@ -10,6 +10,18 @@ public class Transaction {
         return currentFund - transactionaAmount;
     }
     
+    public double usdConverstion(int CurrentFund){
+
+        return CurrentFund * 0.019;
+    }
+    public double yenConverstion(int CurrentFund){
+
+        return CurrentFund * 2.41;
+    }
+    public double euroConverstion(int CurrentFund){
+
+        return CurrentFund * 0.017;
+    }
 
 
 }

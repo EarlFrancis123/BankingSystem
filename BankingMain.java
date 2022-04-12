@@ -10,6 +10,7 @@ public class BankingMain {
         Scanner inputsc = new Scanner(System.in);
         Transaction transaction = new Transaction();
         
+        
 
         System.out.println("Enter Your Name: ");
         name = inputsc.nextLine();
@@ -20,11 +21,11 @@ public class BankingMain {
 
         do{
             System.out.println("________________________________");
-            System.out.println("Press 1 to Display information");
-            System.out.println("Press 2 to Add Funds");
-            System.out.println("Press 3 to Withdraw your Funds");
-            System.out.println("Press 4 to Covert your funds to USD");
-            System.out.println("Press 0 to End: ");
+            System.out.println("Press [1] to Display information");
+            System.out.println("Press [2] to Add Funds");
+            System.out.println("Press [3] to Withdraw your Funds");
+            System.out.println("Press [4] to Covert your funds to USD");
+            System.out.println("Press [0] to End: ");
             System.out.println("________________________________");
             option = inputsc.nextInt();
            
@@ -58,8 +59,8 @@ public class BankingMain {
                 System.out.println("Your Current Funds: " + currentFund);
                 System.out.println("Input your a amount you want to withdraw");
                 transactionaAmount = inputsc.nextInt();
-                if(currentFund < 500 || transactionaAmount > currentFund){
-                    System.out.println("Your Current Balance is not Enough or Input amount that is greater than 500");
+                if(transactionaAmount < 500 || transactionaAmount > currentFund){
+                    System.out.println("Your Current Balance is not Enough or withdraw an amount that is greater than 500");
                  }else{
                 currentFund = transaction.withdrawFunds(transactionaAmount, initialfunds);
                 System.out.println("Your Current Funds is: " + currentFund);
@@ -71,25 +72,25 @@ public class BankingMain {
                 System.out.println("********************************");
                 System.out.println("Convert your Funds");
                 System.out.println("Your Current Funds: " + initialfunds);
-                System.out.println("Press 1 to convert your funds to USD: ");
-                System.out.println("Press 1 to convert your funds to YEN: ");
-                System.out.println("Press 1 to convert your funds to EURO: ");
+                System.out.println("Press [1] to convert your funds to USD: ");
+                System.out.println("Press [2] to convert your funds to YEN: ");
+                System.out.println("Press [3] to convert your funds to EURO: ");
                 option2 = inputsc.nextInt();
                 
                 switch (option2) {
                     case 1: System.out.println("********************************");
                             System.out.println("Your Funds to USD");
-                            convertion = currentFund * 0.19;
+                            convertion = transaction.usdConverstion(currentFund);
                             System.out.println(currentFund+" Pesos = "+convertion+" USD");
                             break;
                     case 2: System.out.println("********************************");
                             System.out.println("Your Funds to YEN");
-                            convertion = currentFund * 2.40;
+                            convertion = transaction.yenConverstion(currentFund);
                             System.out.println(currentFund+" Pesos = "+convertion+" YEN");
                             break;
                     case 3: System.out.println("********************************");
                             System.out.println("Your Funds to EURO");
-                            convertion = currentFund * 0.017;
+                            convertion = transaction.euroConverstion(currentFund);
                             System.out.println(currentFund+" Pesos = "+convertion+" EURO");
                             break;   
 
@@ -108,7 +109,7 @@ public class BankingMain {
             }
         }
         while(option != 0 );
-            System.out.println("Program End");
+            System.out.println("Program End Thank you!!");
        inputsc.close();
         }
       }
